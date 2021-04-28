@@ -1,0 +1,47 @@
+{
+  "name": "ark4ne/laravel-repository",
+  "description": "Laravel Repository",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "repository",
+    "repositories",
+    "eloquent",
+    "database"
+  ],
+  "authors": [
+    {
+      "name": "Guillaume Allegret",
+      "email": "gui.allegret@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.4|^8.0",
+    "illuminate/support": "^7|^8",
+    "illuminate/database": "^7|^8",
+    "illuminate/contracts": "^7|^8"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "orchestra/testbench": "^5|^6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ark4ne\\Repositories\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Ark4ne\\Repositories\\RepositoryServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
