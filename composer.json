@@ -37,13 +37,6 @@
       "Tests\\": "tests/"
     }
   },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Ark4ne\\Repositories\\RepositoryServiceProvider"
-      ]
-    }
-  },
   "minimum-stability": "dev",
   "prefer-stable": true
 }
