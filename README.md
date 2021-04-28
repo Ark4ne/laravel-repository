@@ -1,6 +1,9 @@
 # laravel-repository
 Laravel Repository implementation
 
+[![Build Status](https://travis-ci.com/Ark4ne/laravel-repository.svg?branch=master)](https://travis-ci.com/Ark4ne/laravel-repository)
+[![Coverage Status](https://coveralls.io/repos/github/Ark4ne/laravel-repository/badge.svg)](https://coveralls.io/github/Ark4ne/laravel-repository)
+
 ## Usage
 
 ```php
