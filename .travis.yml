@@ -14,8 +14,5 @@ script:
   - mkdir -p build/logs
   - vendor/bin/phpunit --configuration ./phpunit.xml --coverage-clover build/logs/clover.xml
 
-after_script:
-  - php vendor/bin/coveralls -v
-
 after_success:
-  - coveralls
+  - php vendor/bin/php-coveralls -v
