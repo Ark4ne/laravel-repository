@@ -1,6 +1,7 @@
+<?xml version="1.0"?>
 <phpunit
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/6.3/phpunit.xsd"
+        xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
         backupGlobals="true"
         backupStaticAttributes="false"
         cacheResult="false"
@@ -18,20 +19,18 @@
         timeoutForSmallTests="1"
         timeoutForMediumTests="10"
         timeoutForLargeTests="60"
-        verbose="false">
-
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
+        verbose="false"
+>
+    <coverage processUncoveredFiles="true">
+        <include>
             <directory suffix=".php">src/</directory>
-        </whitelist>
-    </filter>
-
+        </include>
+    </coverage>
     <testsuites>
         <testsuite name="laravel-repositories">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-
     <php>
         <env name="APP_KEY" value="AckfSECXIvnK5r28GVIWUAxmbBSjTsmF"/>
         <env name="DB_CONNECTION" value="testing"/>
