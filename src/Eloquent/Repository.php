@@ -4,6 +4,7 @@
 namespace Ark4ne\Repositories\Eloquent;
 
 use Ark4ne\Repositories\Contracts\RepositoryContract;
+use Closure;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -223,6 +224,8 @@ abstract class Repository implements RepositoryContract
                 $instance->whereNull($field);
             } elseif (is_array($value)) {
                 $instance->whereIn($field, $value);
+            } elseif($value instanceof Closure) {
+                $instance->where($value);
             } else {
                 $instance->where($field, $value);
             }
