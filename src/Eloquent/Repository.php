@@ -21,11 +21,6 @@ use Illuminate\Support\Collection;
 abstract class Repository implements RepositoryContract
 {
     /**
-     * @var class-string<T>
-     */
-    protected static string $model;
-
-    /**
      * Default relationships that should be eager loaded.
      *
      * @var array<string, null|int|string|Closure>
@@ -127,7 +122,7 @@ abstract class Repository implements RepositoryContract
      */
     public function store(array $data): Model
     {
-        $model = $this->getNewInstance();
+        $model = $this->getModel();
 
         $model->fill($data);
         $model->save();
@@ -186,23 +181,13 @@ abstract class Repository implements RepositoryContract
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Model|T
-     */
-    protected function getNewInstance(): Model
-    {
-        $modelClass = static::$model;
-
-        return new $modelClass;
-    }
-
-    /**
      * @param array<string, null|int|string|Closure> $criteria
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
     protected function getQueryBuilder(array $criteria = []): Builder
     {
-        $query = $this->getNewInstance()->newQuery();
+        $query = $this->getModel()->newQuery();
 
         $this->applyCriteria($query, array_merge($this->criteria, $criteria));
 
@@ -233,4 +218,9 @@ abstract class Repository implements RepositoryContract
 
         return $instance;
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Model|T
+     */
+    abstract protected function getModel(): Model;
 }
