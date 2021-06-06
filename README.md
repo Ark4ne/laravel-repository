@@ -26,7 +26,9 @@ interface PetRepositoryContract extends RepositoryContract {
 use Ark4ne\Repositories\Eloquent\Repository;
 
 class PetRepository extends Repository implements PetRepositoryContract {
-    protected static string $model = Pet::class;
+    protected function getModel() : Pet {
+        return new Pet;
+    }
 }
 ```
 
@@ -61,106 +63,107 @@ class PetController extends Controller {
 
 ## Methods
 #### count
+
+Count models matching $criteria.
+
 ```php
 count(array<string, null|int|string|Closure> $criteria): int
 ```
 
-Count models matching $criteria.
-
-
 #### all
+
+Return all models matching $criteria.
+
 ```php
 all(): \Illuminate\Support\Collection
 ```
 
-Return all models matching $criteria.
-
-
 #### paginate
+
+Return a paginate list of model matching $criteria.
+
 ```php
 paginate(array<string, null|int|string|Closure> $criteria, int|null $per_page): \Illuminate\Contracts\Pagination\LengthAwarePaginator
 ```
 
-Return a paginate list of model matching $criteria.
-
-
 #### find
+
+Return a model by his id.
+
 ```php
 find(int|string $id): \Illuminate\Database\Eloquent\Model
 ```
 
-Return a model by his id.
-
-
 #### findBy
+
+Return a model where $field match the given value.
+
 ```php
 findBy(string $field, mixed $value): \Illuminate\Database\Eloquent\Model
 ```
 
-Return a model where $field match the given value.
-
-
 #### findByMany
+
+Return a model matching $criteria.
+
 ```php
 findByMany(array<string, null|int|string|Closure> $criteria): \Illuminate\Database\Eloquent\Model
 ```
 
-Return a model matching $criteria.
-
-
 #### getWhere
+
+Return a collection of model where $field match the given value.
+
 ```php
 getWhere(string $field, mixed $value): \Illuminate\Support\Collection
 ```
 
-Return a collection of model where $field match the given value.
-
-
 #### getWhereMany
+
+Return a collection of model matching $criteria.
+
 ```php
 getWhereMany(array<string, null|int|string|Closure> $criteria): \Illuminate\Support\Collection
 ```
 
-Return a collection of model matching $criteria.
-
-
 #### store
+
+Create and return a new model.
+
 ```php
 store(array<string, mixed> $data): \Illuminate\Database\Eloquent\Model
 ```
 
-Create and return a new model.
-
-
 #### update
+
+Update an existing model
+
 ```php
 update(int|string $id, array<string, mixed> $data): \Illuminate\Database\Eloquent\Model
 ```
 
-Update an existing model
-
-
 #### delete
+
+Delete an existing model
+
 ```php
 delete(int|string $id): bool
 ```
 
-Delete an existing model
-
-
 #### withCriteria
+
+Add criteria
+
 ```php
 withCriteria(array<string, null|int|string|Closure> $criteria): self
 ```
 
-Add criteria
-
 
 #### withRelationships
+
+Add relationships that should be eager loaded.
+
 ```php
 withRelationships(array<string> $relationships): self
 ```
-
-Add relationships that should be eager loaded.
-  
   
